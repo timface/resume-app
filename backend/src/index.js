@@ -8,7 +8,13 @@ const jwksRsa = require('jwks-rsa');
 
 const app = express();
 
-const workHistory = [];
+const workHistory = [{
+    id: 1,
+    title: "Academic",
+    description: "James Cook University",
+    details: [{
+        detail: "2012-Current"}]
+}];
 
 app.use(helmet());
 
