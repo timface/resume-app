@@ -11,9 +11,12 @@ const app = express();
 const workHistory = [{
     id: 1,
     title: "Academic",
-    description: "James Cook University",
+    location: "James Cook University",
+    yearStart: "2012",
+    yearEnd: "Current",
     details: [{
-        detail: "2012-Current"}]
+        activities: ["Dissemination of technical knowledge to lay audience", "Diagnosing and assisting client queries", "Assessing and providing feedback of deliverables"]
+    }]
 }];
 
 app.use(helmet());
@@ -25,20 +28,19 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req, res) => {
-    const qs = workHistory.map(q => ({
-        id: q.id,
-        title: q.title,
-        description: q.description,
-        details: q.details.length,
+    const history = workHistory.map(hist => ({
+        id: hist.id,
+        title: hist.title,
+        location: hist.location,
     }));
-    res.send(qs);
+    res.send(history);
 });
 
 app.get('/:id', (req, res) => {
-    const question = workHistory.filter(q => (q.id === parseInt(req.params.id)));
-    if (question.length > 1) return res.status(500).send();
-    if (question.length === 0) return res.status(404).send();
-    res.send(question[0]);
+    const history = workHistory.filter(q => (q.id === parseInt(req.params.id)));
+    if (history.length > 1) return res.status(500).send();
+    if (history.length === 0) return res.status(404).send();
+    res.send(history[0]);
 })
 
 const checkJwt = jwt({
@@ -56,24 +58,24 @@ const checkJwt = jwt({
 
 app.post('/', checkJwt, (req, res) => {
     const {title, description} = req.body;
-    const newQuestion = {
+    const newhistory = {
         id: workHistory.length+1,
         title,
         description,
         details: [],
     };
-    workHistory.push(newQuestion);
+    workHistory.push(newhistory);
     res.status(200).send();
 });
 
 app.post('/details/:id', checkJwt, (req, res) => {
     const {detail} = req.body;
 
-    const question = workHistory.filter(q => (q.id === parseInt(req.params.id)));
-    if (question.length > 1) return res.status(500).send();
-    if (question.length === 0) return res.status(404).send();
+    const history = workHistory.filter(q => (q.id === parseInt(req.params.id)));
+    if (history.length > 1) return res.status(500).send();
+    if (history.length === 0) return res.status(404).send();
 
-    question [0].details.push({
+    history [0].details.push({
         detail,
     });
 

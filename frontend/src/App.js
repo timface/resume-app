@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import NavBar from './Navbar/NavBar';
 import WorkHistory from './WorkHistory/WorkHistory';
-import History from './History/History'
+//import History from './History/History'
+import HistoryFull from './History/History';
 
 class App extends Component {
   render(){
@@ -10,7 +11,7 @@ class App extends Component {
       <div>
         <NavBar/>
         <Route exact path="/" component={WorkHistory}/>
-        <Route exact path='/history/:historyId' component={History}/>
+        <Route exact path='/history/:historyId' render={(props) => <HistoryFull {...props} id={1}/>}/>
       </div>
     )
   }

@@ -24,7 +24,7 @@ class WorkHistory extends Component{
                 <div className="row">
                     {this.state.workHistory === null && <p>Loading History...</p>}
                     {this.state.workHistory && this.state.workHistory.map(history => (
-                        <HistoryCard history={history}/>
+                        <HistoryCard key={history.id} {...history}/>
                     ))
                     }
                 </div>
