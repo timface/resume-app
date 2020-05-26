@@ -42,33 +42,33 @@ import axios from 'axios';
 // }
 
 function HistoryFull(props){
-    console.log(props.id);
-    const [history, setHistory] = useState(null);
-    console.log(history)
+    const [hist, setHistory] = useState(null);
 
     async function fetchData(){
-        setHistory(await axios.get(`http://localhost:8081/${props.id}`).data);
+        const data = await axios.get(`http://localhost:8081/${props.id}`).then(
+                resp => resp.data
+            );
+            setHistory(data);
     }
 
     useEffect(()=> 
         { 
-            console.log("fething");
             fetchData();
-        },
+        },[]
     );
 
-    if (history){
+    if (hist){
 
     return (
         <div className="container">
                 <div className="row">
                     <div className="jumbotron col-12">
-                        <h1 className="display-3">{history.title}</h1>
-                        <p className="lead">{history.location}</p>
+                        <h1 className="display-3">{hist.title}</h1>
+                        <p className="lead">{hist.location}</p>
                         <hr className="my-4" />
                             <p>Details:</p>
                             {
-                                history.details.map((detail, idx) => (
+                                hist.details.map((detail, idx) => (
                                  <p className="lead" key={idx}>{detail.detail}</p>
                                 ))
                             }
@@ -77,7 +77,7 @@ function HistoryFull(props){
             </div>
     )
                         }
-                        else return (<p>Nothing</p>)
+                        else return (<p>Loading...</p>)
 }
 
 export default HistoryFull;
