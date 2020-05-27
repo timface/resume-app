@@ -14,9 +14,7 @@ const workHistory = [{
     location: "James Cook University",
     yearStart: "2012",
     yearEnd: "Current",
-    details: [{
-        activities: ["Dissemination of technical knowledge to lay audience", "Diagnosing and assisting client queries", "Assessing and providing feedback of deliverables"]
-    }]
+    activities: ["Dissemination of technical knowledge to lay audience", "Diagnosing and assisting client queries", "Assessing and providing feedback of deliverables"]
 }];
 
 app.use(helmet());
