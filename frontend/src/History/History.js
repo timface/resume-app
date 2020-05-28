@@ -27,7 +27,8 @@ function HistoryFull(props) {
                     <p className="font-italic">{hist.yearStart} - {hist.yearEnd}</p>
                     <h3>{hist.location}</h3>
                     <hr className="my-4" />
-                    <HistoryWorkDetails {...hist} />
+                    {hist.isEmpHist && <HistoryWorkDetails {...hist} />}
+                    {!hist.isEmpHist && <HistoryEduDetails {...hist} />}
                 </div>
                 }
             </div>
@@ -38,6 +39,7 @@ function HistoryFull(props) {
 function HistoryWorkDetails(props) {
     return (
         <div>
+            <p className="text-justify">{props.overview}</p>
             <h4>Key Responsibilities:</h4>
             <ul>
                 {
@@ -46,6 +48,22 @@ function HistoryWorkDetails(props) {
                     ))
                 }
             </ul>
+            <h4>Achievements:</h4>
+            <ul>
+                {
+                    props.achievements.map((detail, idx) => (
+                        <li className="lead" key={idx}>{detail}</li>
+                    ))
+                }
+            </ul>
+        </div>
+    )
+}
+
+function HistoryEduDetails(props){
+    return (
+        <div>
+            <p className="text-justify">{props.overview}</p>
             <h4>Achievements:</h4>
             <ul>
                 {

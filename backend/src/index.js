@@ -10,11 +10,26 @@ const app = express();
 
 const workHistory = [{
     id: 1,
+    isEmpHist: true,
     title: "Academic",
     location: "James Cook University",
     yearStart: "2012",
     yearEnd: "Current",
-    activities: ["Dissemination of technical knowledge to lay audience", "Diagnosing and assisting client queries", "Assessing and providing feedback of deliverables"]
+    activities: ["Dissemination of technical knowledge to lay audience", "Diagnosing and assisting client queries", "Assessing and providing feedback of deliverables"],
+    achievements: ["Sessional Teaching Award - 2016", "Bev Frangos Graduate Instructor Prize in Information Technology - 2019", "Consistent positive feedback from students"],
+    overview: `This role requires me to accurately and clearly instruct tertiary level students in the subject matter as well as encourage their professional growth. I have instructed content areas such as 
+                programming, networking, databasing, user interaction/experience, and security. I have developed a strong sense for "getting to the bottom" of an individual's issue(s) so that I can then guide them
+                towards a solution/understanding.`
+},
+{
+    id:2,
+    isEmpHist: false,
+    title: "Bachelor of Information Technology",
+    location: "James Cook University",
+    yearStart: "2011",
+    yearEnd: "2014",
+    overview: "This course covered a breadth of IT fields including programming, networking, databasing, user interaction/experience, and security.",
+    achievements: ["University Medal (awarded for a GPA of at least 6.5 (max: 7))"]
 }];
 
 app.use(helmet());
