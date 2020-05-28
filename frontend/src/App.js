@@ -12,6 +12,7 @@ class App extends Component {
         <NavBar/>
         <Route exact path="/" component={WorkHistory}/>
         <Route exact path='/workHistory' component={WorkHistory}/>
+        <Route exact path='/eduHistory' component={WorkHistory} />
         <Route exact path='/history/:historyId' render={(props) => <HistoryFull {...props}/>}/>
       </div>
     )

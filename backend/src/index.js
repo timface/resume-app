@@ -45,6 +45,7 @@ app.get('/', (req, res) => {
         id: hist.id,
         title: hist.title,
         location: hist.location,
+        isEmpHist: hist.isEmpHist,
     }));
     res.send(history);
 });
