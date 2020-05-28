@@ -4,9 +4,10 @@ import axios from 'axios';
 
 function HistoryFull(props) {
     const [hist, setHistory] = useState(null);
+    const historyId = props.match.params.historyId;
 
     async function fetchData() {
-        const data = await axios.get(`http://localhost:8081/${props.id}`).then(
+        const data = await axios.get(`http://localhost:8081/${historyId}`).then(
             resp => resp.data
         );
         setHistory(data);
@@ -26,25 +27,33 @@ function HistoryFull(props) {
                     <p className="font-italic">{hist.yearStart} - {hist.yearEnd}</p>
                     <h3>{hist.location}</h3>
                     <hr className="my-4" />
-                    <h4>Key Responsibilities:</h4>
-                    <ul>
-                        {
-                            hist.activities.map((detail, idx) => (
-                                <li className="lead" key={idx}>{detail}</li>
-                            ))
-                        }
-                    </ul>
-                    {/* <h4>Achievements:</h4>
-                    <ul>
-                        {
-                            hist.achievements.map((detail, idx) => (
-                                <li className="lead" key={idx}>{detail}</li>
-                            ))
-                        }
-                    </ul> */}
+                    <HistoryWorkDetails {...hist} />
                 </div>
                 }
             </div>
+        </div>
+    )
+}
+
+function HistoryWorkDetails(props) {
+    return (
+        <div>
+            <h4>Key Responsibilities:</h4>
+            <ul>
+                {
+                    props.activities.map((detail, idx) => (
+                        <li className="lead" key={idx}>{detail}</li>
+                    ))
+                }
+            </ul>
+            <h4>Achievements:</h4>
+            <ul>
+                {
+                    props.achievements.map((detail, idx) => (
+                        <li className="lead" key={idx}>{detail}</li>
+                    ))
+                }
+            </ul>
         </div>
     )
 }
