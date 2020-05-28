@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function HistoryFull(props) {
@@ -17,30 +17,36 @@ function HistoryFull(props) {
     }, []
     );
 
-    if (hist) {
-
-        return (
-            <div className="container">
-                <div className="row">
-                    <div className="jumbotron col-12 bg-primary pt-1">
-                        <h1 className="display-3">{hist.title}</h1>
-                        <p className="font-italic">{hist.yearStart} - {hist.yearEnd}</p>
-                        <h3>{hist.location}</h3>
-                        <hr className="my-4" />
-                        <h4>Key Responsibilities:</h4>
-                        <ul>
+    return (
+        <div className="container">
+            <div className="row d-flex justify-content-center">
+                {hist === null && <div className="text-center spinner-border"></div>}
+                {hist && <div className="jumbotron col-12 bg-primary pt-1">
+                    <h1 className="display-3">{hist.title}</h1>
+                    <p className="font-italic">{hist.yearStart} - {hist.yearEnd}</p>
+                    <h3>{hist.location}</h3>
+                    <hr className="my-4" />
+                    <h4>Key Responsibilities:</h4>
+                    <ul>
                         {
                             hist.activities.map((detail, idx) => (
                                 <li className="lead" key={idx}>{detail}</li>
                             ))
                         }
-                        </ul>
-                    </div>
+                    </ul>
+                    {/* <h4>Achievements:</h4>
+                    <ul>
+                        {
+                            hist.achievements.map((detail, idx) => (
+                                <li className="lead" key={idx}>{detail}</li>
+                            ))
+                        }
+                    </ul> */}
                 </div>
+                }
             </div>
-        )
-    }
-    else return (<div className="text-center spinner-border"></div>)
+        </div>
+    )
 }
 
 export default HistoryFull;
