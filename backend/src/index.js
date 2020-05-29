@@ -30,7 +30,21 @@ const workHistory = [{
     yearEnd: "2014",
     overview: "This course covered a breadth of IT fields including programming, networking, databasing, user interaction/experience, and security.",
     achievements: ["University Medal (awarded for a GPA of at least 6.5 (max: 7))"]
-}];
+},
+{
+    id: 3,
+    isEmpHist: false,
+    title: "Bachelor of Information Technology - Honours",
+    location: "James Cook University",
+    yearStart: "2014",
+    yearEnd: "2015",
+    overview: `Abstract from Thesis: There is a growing need for conservation stakeholders to make more cost-effective decisions as the strain placed on our 
+            ecosystems grows while the amount of resources available for conservation efforts lags. The decision making process however suffers from a number of 
+            flaws including efficiency, accuracy, and human misjudgement and errors. This paper shows that the use of serious games as a decision support tool 
+            can be used to overcome some of these flaws.`,
+    achievements: ["Class 1B overall result"],
+}
+];
 
 app.use(helmet());
 
