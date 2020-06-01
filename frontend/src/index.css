@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-li::before{
+li.test-list-item::before{
    content: '\1F44D';
    margin-right: 1rem;
 }
