@@ -141,7 +141,7 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req, res) => {
-    return res.status(200).send();
+    return res.status(200).send(data);
 })
 
 app.get('/histories', (req, res) => {
@@ -155,7 +155,7 @@ app.get('/histories', (req, res) => {
 });
 
 app.get('/histories/:id', (req, res) => {
-    const history = workHistory.filter(q => (q.id === parseInt(req.params.id)));
+    const history = data.histories.filter(q => (q.id === parseInt(req.params.id)));
     if (history.length > 1) return res.status(500).send();
     if (history.length === 0) return res.status(404).send();
     res.send(history[0]);

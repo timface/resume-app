@@ -4,6 +4,7 @@ import NavBar from './Navbar/NavBar';
 import HistoryFull from './History/History';
 import axios from 'axios';
 import HistoryPage from './History/HistoryPage';
+import SkillPage from './Skills/SkillPage';
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +17,10 @@ class App extends Component {
 }
 
 async componentDidMount() {
-    const data = (await axios.get('http://localhost:8081/')).data;
+    const resp = (await axios.get('http://localhost:8081/')).data;
+
+    const data = JSON.parse(JSON.stringify(resp));
+
     this.setState({
         data,
     });
@@ -27,9 +31,10 @@ async componentDidMount() {
       <div>
         <NavBar/>
         <Route exact path="/" />
-        <Route exact path='/workHistory' render={(props) => <HistoryPage {...props} data={this.state.data}/>}/>
-        <Route exact path='/eduHistory' render={(props) => <HistoryPage {...props} data={this.state.data}/>} />
+        <Route exact path='/workHistory' render={(props) => <HistoryPage {...props} data={this.state.data.histories}/>}/>
+        <Route exact path='/eduHistory' render={(props) => <HistoryPage {...props} data={this.state.data.histories}/>} />
         <Route exact path='/history/:historyId' render={(props) => <HistoryFull {...props}/>}/>
+        <Route exact path='/skills' render={(props) => <SkillPage {...props} data={this.state.data.skills}/>} />
       </div>
     )
   }

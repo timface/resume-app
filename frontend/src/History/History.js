@@ -7,7 +7,7 @@ function HistoryFull(props) {
     const historyId = props.match.params.historyId;
 
     async function fetchData() {
-        const data = await axios.get(`http://localhost:8081/${historyId}`).then(
+        const data = await axios.get(`http://localhost:8081/histories/${historyId}`).then(
             resp => resp.data
         );
         setHistory(data);
