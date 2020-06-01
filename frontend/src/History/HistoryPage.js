@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HistoryCard from '../HistoryCard/HistoryCard';
+import HistoryCard from './HistoryCard';
 
 function HistoryPage(props){
     //eslint-disable-next-line

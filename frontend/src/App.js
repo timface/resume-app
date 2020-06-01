@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import NavBar from './Navbar/NavBar';
 import HistoryFull from './History/History';
 import axios from 'axios';
-import HistoryPage from './WorkHistory/HistoryPage';
+import HistoryPage from './History/HistoryPage';
 
 class App extends Component {
   constructor(props) {

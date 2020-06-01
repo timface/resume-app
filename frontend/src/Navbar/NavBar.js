@@ -10,6 +10,7 @@ function NavBar() {
             <Link className="nav-item text-white mr-2" to="/workhistory">Employment History</Link>
             <Link className="nav-item text-white mr-2" to="/eduhistory">Education History</Link>
             <Link className="nav-item text-white mr-2" to="/skills">Skills</Link>
+            <Link className="nav-item text-white mr-2" to="/testimonials">Testimonials</Link>
         </nav>
     );
 }

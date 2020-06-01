@@ -8,7 +8,7 @@ const jwksRsa = require('jwks-rsa');
 
 const app = express();
 
-const workHistory = [{
+const data = {histories: [{
     id: 1,
     isEmpHist: true,
     title: "Academic",
@@ -43,8 +43,94 @@ const workHistory = [{
             flaws including efficiency, accuracy, and human misjudgement and errors. This paper shows that the use of serious games as a decision support tool 
             can be used to overcome some of these flaws.`,
     achievements: ["Class 1B overall result"],
+}],
+skills: [{
+    id: 1,
+    type: "Technical",
+    skill: "Javascript",
+    level: "Working Knowledge",
+},
+{
+    id: 2,
+    type: "Technical",
+    skill: "HTML + CSS",
+    level: "Working Knowledge",
+},
+{
+    id: 3,
+    type: "Technical",
+    skill: "Python",
+    level: "Working Knowledge",
+},
+{
+    id: 4,
+    type: "Technical",
+    skill: "PHP",
+    level: "Needs Review",
+},
+{
+    id: 5,
+    type: "Technical",
+    skill: "Web Development Frameworks - React.js, Bootstrap, Node.js",
+    level: "Learning -> Working Knowledge"
+},
+{
+    id: 6,
+    type: "Professional",
+    skill: "Client Communications - General (Digital, Oral, Written)",
+    level: "Highly Proficient"
+},
+{
+    id: 7,
+    type: "Professional",
+    skill: "Client Communications - Knowledge Transfer",
+    level: "Highly Proficient"
+},
+{
+    id: 8,
+    type: "Professional",
+    skill: "Client Communications - Requirements Gathering",
+    level: "Highly Proficient"
+},
+{
+    id: 9,
+    type: "Professional",
+    skill: "Adaptability",
+    level: "Highly Proficient"
+},
+{
+    id: 10,
+    type: "Professional",
+    skill: "Teamwork",
+    level: "Highly Proficient"
+},
+{
+    id: 11,
+    type: "Technical",
+    skill: "Server Management",
+    level: "Learning"
+},
+{
+    id: 12,
+    type: "Technical",
+    skill: "Cloud Technology",
+    level: "Learning"
+},
+{
+    id: 13,
+    type: "Technical",
+    skill: "C#",
+    level: "Working Knowledge"
+},
+{
+    id: 14,
+    type: "Professional",
+    skill: "Research skills - Critical Analysis, Creative Thinking, Problem Solving",
+    level: "Working Knowledge"
 }
-];
+],
+testimonials: ["Tim is good", "Tim is helpful", "Tim is great"]
+};
 
 app.use(helmet());
 
@@ -55,7 +141,11 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req, res) => {
-    const history = workHistory.map(hist => ({
+    return res.status(200).send();
+})
+
+app.get('/histories', (req, res) => {
+    const history = data.histories.map(hist => ({
         id: hist.id,
         title: hist.title,
         location: hist.location,
@@ -64,12 +154,18 @@ app.get('/', (req, res) => {
     res.send(history);
 });
 
-app.get('/:id', (req, res) => {
+app.get('/histories/:id', (req, res) => {
     const history = workHistory.filter(q => (q.id === parseInt(req.params.id)));
     if (history.length > 1) return res.status(500).send();
     if (history.length === 0) return res.status(404).send();
     res.send(history[0]);
 })
+
+app.get('/skills', (req, res) => {
+    const skills = JSON.stringify(data.skills);
+
+    res.send(skills);
+} )
 
 const checkJwt = jwt({
     secret: jwksRsa.expressJwtSecret({
