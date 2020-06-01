@@ -129,7 +129,14 @@ skills: [{
     level: "Working Knowledge"
 }
 ],
-testimonials: ["Tim is good", "Tim is helpful", "Tim is great"]
+testimonials: ["Timothy Hart, the guy who does all the lectures for external students, really makes you feel like a part of the action", 
+                "Tims lecture videos were to the point and yet relaxed in nature", "Tim was a good lecturer and was learned on subject he was teaching.",
+               "Understanding where students have problem and available to help and cool.", `Strong knowledge, often could be asked on any of the material and would know the answer.
+               Tim was willing to go through assessment to explain where i had lost marks.
+               He would also be openly available for students to enter his room and is overall very approachable.
+               I was very pleased with Tim this semester`,
+               "Timothy was a very approachable and friendly teacher who helped the lectures feel engaging and even entertaining. He was always there to support me and other students when it came to topics we struggled with.",
+            ]
 };
 
 app.use(helmet());

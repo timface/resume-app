@@ -12,3 +12,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+li::before{
+   content: '\1F44D';
+   margin-right: 1rem;
+}
