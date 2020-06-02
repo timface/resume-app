@@ -11,6 +11,7 @@ function NavBar() {
             <Link className="nav nav-item nav-link text-white" to="/eduhistory">Education History</Link>
             <Link className="nav nav-item nav-link text-white" to="/skills">Skills</Link>
             <Link className="nav nav-item nav-link text-white" to="/testimonials">Testimonials</Link>
+            <Link className="nav nav-item nav-link text-white" to='/contact'>Contact Me</Link>
         </nav>
     );
 }

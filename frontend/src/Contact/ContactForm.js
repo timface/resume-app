@@ -25,9 +25,9 @@ function ContactForm(props) {
 
     const formik = useFormik({
         initialValues: {
-            name: 'Tim Hart',
+            name: '',
             email: 'example@org.com',
-            org: 'Example Org',
+            org: '',
             msg: 'Hi Tim, \n I\'d like to arrange an interview',
         },
         validate,
@@ -40,8 +40,10 @@ function ContactForm(props) {
         <div className="container">
             <div className="row">
                 <form onSubmit={formik.handleSubmit}>
-                    <label for="name">Your name:</label>
+                    <div className="row">
+                    <label for="name" className="col text-right">Your name:</label>
                     <input
+                    className="col"
                         id="name"
                         name='name'
                         type='text'
@@ -49,32 +51,43 @@ function ContactForm(props) {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur} />
                     {formik.touched.name && formik.errors.name ? <div>{formik.errors.name}</div> : null}
-                    <label for="email">Your work email:</label>
+                    </div>
+                    <div className="row">
+                    <label for="email" className="col">Your work email:</label>
                     <input
+                    className="col"
                         id="email"
                         name="email"
                         type="email"
                         value={formik.values.email}
+                        placeholder={formik.values.email}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur} />
                     {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
-                    <label for="org">Your Organisation:</label>
+                    </div>
+                    <div className="row">
+                    <label for="org" className="col">Your Organisation:</label>
                     <input
+                    className="col"
                         id="org"
                         name="org"
                         type="text"
                         value={formik.values.org}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur} />
-                    <label for="msg">Subject:</label>
+                        </div>
+                        <div className="row">
+                    <label for="msg" className="col">Subject:</label>
                     <input
+                    className="col"
                         id="msg"
                         name="msg"
-                        type="msg"
+                        type="textarea"
                         value={formik.values.msg}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur} />
                     {formik.touched.msg && formik.errors.msg ? <div>{formik.errors.msg}</div> : null}
+                    </div>
                     <button type='submit'>Submit</button>
                 </form>
             </div>
