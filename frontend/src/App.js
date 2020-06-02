@@ -7,6 +7,7 @@ import HistoryPage from './History/HistoryPage';
 import SkillPage from './Skills/SkillPage';
 import TestimonialPage from './TestimonialPage/TestimonialPage';
 import AboutPage from './About/AboutPage';
+import ContactForm from './Contact/ContactForm';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class App extends Component {
     const resp = (await axios.get('http://localhost:8081/')).data;
 
     const data = JSON.parse(JSON.stringify(resp));
-    
+
     this.setState({
       data,
     });
@@ -41,6 +42,7 @@ class App extends Component {
             <Route exact path='/history/:historyId' render={(props) => <HistoryFull {...props} />} />
             <Route exact path='/skills' render={(props) => <SkillPage {...props} data={this.state.data.skills} />} />
             <Route exact path='/testimonials' render={props => <TestimonialPage {...props} data={this.state.data.testimonials} />} />
+            <Route exact path='/contact' component={ContactForm} />
           </React.Fragment>
         }
       </div>
