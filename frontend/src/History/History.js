@@ -4,7 +4,9 @@ import axios from 'axios';
 
 function HistoryFull(props) {
     const historyId = props.match.params.historyId;
-    const [hist, setHistory] = useState(props.data.histories.find(el => el.id === historyId));
+    let history = props.data.find(el => el.id == historyId);
+    //eslint-disable-next-line
+    const [hist, setHistory] = useState(history);
 
     // async function fetchData() {
     //     const data = await axios.get(`http://localhost:8081/histories/${historyId}`).then(

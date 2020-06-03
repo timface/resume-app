@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
 function SkillPage(props) {
+    /*eslint-disable-next-line*/
     const [skills, setSkills] = useState(props.data);
-
-    console.log(skills);
 
     return (
         <div className="container text-white">

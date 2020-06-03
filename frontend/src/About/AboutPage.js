@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function AboutPage(props){
     let data = !(props.data === null) ? props.data.split(']]') : "loading";
+    //eslint-disable-next-line
     const [about, setAbout] = useState(data);
 
     return (

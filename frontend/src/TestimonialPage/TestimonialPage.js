@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 
 function TestimonialPage(props) {
+    //eslint-disable-next-line
     const [testimonials, setTestimonials] = useState(props.data);
 
     return (

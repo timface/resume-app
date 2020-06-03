@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Form, Formik, Field, ErrorMessage } from 'formik';
+import React from 'react';
+//import { Form, Formik, Field, ErrorMessage } from 'formik';
 
 
-const validate = values => {
+/*const validate = values => {
     const errors = {};
     if (!values.name) {
         errors.name = 'Required';
@@ -19,7 +19,7 @@ const validate = values => {
     }
 
     return errors;
-}
+}*/
 
 function ContactForm(props) {
 
