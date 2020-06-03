@@ -6,7 +6,7 @@ function HistoryPage(props){
     const [hist, setHistory] = useState(props.data);
 
     return(
-        <div className="container">
+        <div className="container text-white">
                 <div className="row">
                     {hist === null && <p>Loading History...</p>}
                     {hist && props.match.path.localeCompare("/workHistory") === 0 && hist

@@ -25,7 +25,7 @@ function ContactForm(props) {
 
     return (
         <React.Fragment>
-            <h3 className='text-center'>Contact Tim</h3>
+            <h3 className='text-center text-white'>Contact Tim</h3>
             <Formik
                 initialValues={{
                     name: '',
@@ -38,7 +38,7 @@ function ContactForm(props) {
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }}>
-                <div className="container">
+                <div className="container text-white">
                     <Form>
                         <div className="form-group">
                             <div className='row'>

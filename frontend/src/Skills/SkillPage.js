@@ -6,12 +6,12 @@ function SkillPage(props) {
     console.log(skills);
 
     return (
-        <div className="container">
+        <div className="container text-white">
             {skills === null && <div className="spinner-border">Loading...</div>}
             <div className="row d-flex text-left">
                 <div className="col">
                     <h4>Professional Skills: </h4>
-                    <div className="list-group mr-2">
+                    <div className="list-group mr-2 bg-secondary">
                         {skills && skills
                             .filter(skill => skill.type.localeCompare("Professional") === 0)
                             .map(skill => (
@@ -22,7 +22,7 @@ function SkillPage(props) {
                 </div>
                 <div className="col">
                     <h4>Technical Skills:</h4>
-                    <div className="list-group">
+                    <div className="list-group bg-secondary">
                         {skills && skills
                             .filter(skill => skill.type.localeCompare("Technical") === 0)
                             .map(skill => (

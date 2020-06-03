@@ -19,10 +19,10 @@ function HistoryFull(props) {
     );
 
     return (
-        <div className="container">
+        <div className="container text-white">
             <div className="row d-flex justify-content-center">
                 {hist === null && <div className="text-center spinner-border"></div>}
-                {hist && <div className="jumbotron col-12 bg-primary pt-1">
+                {hist && <div className="jumbotron col-12 bg-info pt-1">
                     <h1 className="display-3">{hist.title}</h1>
                     <p className="font-italic">{hist.yearStart} - {hist.yearEnd}</p>
                     <h3>{hist.location}</h3>
