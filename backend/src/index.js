@@ -44,7 +44,21 @@ const data = {
             flaws including efficiency, accuracy, and human misjudgement and errors. This paper shows that the use of serious games as a decision support tool 
             can be used to overcome some of these flaws.`,
         achievements: ["Class 1B overall result"],
-    }],
+    },
+    {
+        id: 4,
+        isEmpHist: true,
+        title: "IT Support Officer",
+        location: "James Cook University",
+        yearStart: "2012",
+        yearEnd: "2017",
+        overview: `I was responsible for maintaining the 'General Access and Teaching Computer Facilites' (student computer labs) at the Douglas campus. In this role I 
+                    remotely monitored the PC's using software such as Microsoft SCCM and Sophos Enterprise Console among others. I would successfully troubleshoot issues with the 
+                    equipment and request support from vendors.`,
+        activities: ["Remote monitoring of computing equipment", "Troubleshooting software and hardware issues", "Client/Vendor liason through ticketing systems and in person"],
+        achievements: ["Timely resolution of issues impacting client resource access"],
+    }
+],
     skills: [{
         id: 1,
         type: "Technical",

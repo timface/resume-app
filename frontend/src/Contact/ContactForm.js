@@ -25,7 +25,7 @@ function ContactForm(props) {
 
     return (
         <React.Fragment>
-            <h3 className='text-center text-white'>Contact Tim</h3>
+            <h2 className='text-center text-white'>Contact Tim</h2>
             <Formik
                 initialValues={{
                     name: '',
