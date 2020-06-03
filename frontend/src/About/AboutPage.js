@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 function AboutPage(props){
-    const [about, setAbout] = useState(props.data.split(']]'));
+    let data = !(props.data === null) ? props.data.split(']]') : "loading";
+    const [about, setAbout] = useState(data);
 
     return (
         <div className="container text-white">

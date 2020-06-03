@@ -3,20 +3,20 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function HistoryFull(props) {
-    const [hist, setHistory] = useState(null);
     const historyId = props.match.params.historyId;
+    const [hist, setHistory] = useState(props.data.histories.find(el => el.id === historyId));
 
-    async function fetchData() {
-        const data = await axios.get(`http://localhost:8081/histories/${historyId}`).then(
-            resp => resp.data
-        );
-        setHistory(data);
-    }
+    // async function fetchData() {
+    //     const data = await axios.get(`http://localhost:8081/histories/${historyId}`).then(
+    //         resp => resp.data
+    //     );
+    //     setHistory(data);
+    // }
 
-    useEffect(() => {
-        fetchData();
-    }, []
-    );
+    // useEffect(() => {
+    //     fetchData();
+    // }, []
+    // );
 
     return (
         <div className="container text-white">

@@ -20,14 +20,17 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const resp = (await axios.get('http://localhost:8081/')).data;
-
-    const data = JSON.parse(JSON.stringify(resp));
-
-    this.setState({
-      data,
-    });
-  }
+    await axios.get('/data.json').then(resp => {
+       //console.log(resp.data)
+       const data = JSON.parse(JSON.stringify(resp.data));
+       this.setState({
+        data,
+      });
+    }
+    ).catch( error => 
+      console.log(error)
+    );
+ }
 
   render() {
     return (
@@ -39,7 +42,7 @@ class App extends Component {
             <Route exact path='/' render={props => <AboutPage {...props} data={this.state.data.about} />} />
             <Route exact path='/workHistory' render={(props) => <HistoryPage {...props} data={this.state.data.histories} />} />
             <Route exact path='/eduHistory' render={(props) => <HistoryPage {...props} data={this.state.data.histories} />} />
-            <Route exact path='/history/:historyId' render={(props) => <HistoryFull {...props} />} />
+            <Route exact path='/history/:historyId' render={(props) => <HistoryFull {...props} data={this.state.data.histories}/>} />
             <Route exact path='/skills' render={(props) => <SkillPage {...props} data={this.state.data.skills} />} />
             <Route exact path='/testimonials' render={props => <TestimonialPage {...props} data={this.state.data.testimonials} />} />
             <Route exact path='/contact' component={ContactForm} />
